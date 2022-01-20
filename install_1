@@ -17,4 +17,17 @@ loadkey us
 
 enable the ssh for remote from your computer (is very simple with remote ssh ^^)
 
+passwd 
+
+and write mdp toor
+
+check status of ssh service
+
+systemctl status
+systemctl start
+
+#STEP_3
+
+cgdisk
+
 
