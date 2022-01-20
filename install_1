@@ -1,0 +1,20 @@
+Install vmwareworkstation
+Install virtualbox
+
+Download iso of archlinux
+
+create virtual machine 50G
+
+Insert iso archlinux inside your virtualmachine
+
+lunch your virtual machine with boot and with the iso of archlinux.
+
+#STEP_1
+
+loadkey us
+
+#STEP_2
+
+enable the ssh for remote from your computer (is very simple with remote ssh ^^)
+
+
