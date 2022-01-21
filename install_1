@@ -79,3 +79,41 @@ cryptsetup open /dev/archlvm/root root
 mkfs.xfs /dev/mapper/root
 mount /dev/mapper/root /mnt
 
+#STEP_9
+
++ build and  mount partition of boot
+
+mkfs.fat -F32 /dev/sda1
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+
+#STEP_10
+
++ Install paquet
+
+pacman -Sy pacman-contrib
+
+#STEP_11
+
++ backup original mirror 
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+
+#STEP_12
+
++ select best mirror ranked and add
+
+rankmirrors -n 3 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+
+#STEP_13
+
++ Install base system paquet
+
+
+pacstrap /mnt base base-devel lvm2 nmap jq curl cryptsetup xfsprogs linux-lts linux-lts-headers linux-firmware zip unzip p7zip mlocate vim alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion zsh zsh-completions git grub efibootmgr os-prober
+
+
+
+
+
+
