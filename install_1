@@ -28,6 +28,12 @@ systemctl start
 
 #STEP_3
 
-cgdisk
++ make partition 1 512Mo
+
+sgdisk /dev/sda -n1:0Mib:513MiB -t1:EF00
+
++ make partiton 2 with the next all
+
+sgdisk /dev/sda -n2:+0:-0
 
 
