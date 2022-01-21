@@ -110,7 +110,7 @@ rankmirrors -n 3 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 + Install base system paquet
 
 
-pacstrap /mnt base base-devel lvm2 nmap jq curl cryptsetup xfsprogs linux-lts linux-lts-headers linux-firmware zip unzip p7zip mlocate vim alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion zsh zsh-completions git grub efibootmgr os-prober
+pacstrap /mnt base base-devel go lvm2 nmap jq curl cryptsetup xfsprogs linux-lts linux-lts-headers linux-firmware zip unzip p7zip mlocate vim alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion zsh zsh-completions git grub efibootmgr os-prober
 
 #STEP_14
 
@@ -286,3 +286,58 @@ useradd -mG wheel -s /usr/bin/zsh -c "operator" operator
 + make user sudoers remove # %wheel ALL=(ALL) ALL in visudo /etc/sudoers
 
 %wheel ALL=(ALL) ALL
+
+#STEP_39
+
++ enable time ntp and deamon cron and syslog-ng
+
+pacman -S cronie ntp
+
+systemctl enable cronie
+systemctl enable ntpd
+systemctl enable syslog-ng
+
+#STEP_40
+
++ enable tlp for batterie
+
+#STEP_41
+
++ install driver for graphic card
+
+pacman -S xorg-{server,xinit,apps} xdg-user-dirs xf86-video-intel mesa lib32-mesa
+
+#STEP_42 
+
++ install cpu
+
+pacman -Sy intel-ucode
+
+#STEP_43
+
++ install audio codec
+
+pacman -S gst-libav gst-plugins-{base,good,bad,ugly}
+
+#STEP_44
+
++ install fonts
+
+pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
+
+#STEP_45
+
++ install yay
+
++ switch user 
+
+su - operator
+
++ install yay
+
+git clone https://aur.archlinux.org/yay
+cd yay
+
+
+
+
