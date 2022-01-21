@@ -155,3 +155,134 @@ echo LANG="en_US.UTF-8" > /etc/locale.conf
 
 echo KEYMAP=us > /etc/vconsole.conf
 
+#STEP_22
+
++ install and enable network for next start of the system
+
+pacman -Sy networkmanager
+systemctl enable NetworkManager
+
+#STEP_23
+
++ enable color vim /etc/pacman.conf
+
+Color
+UseSyslog
+
++ remove # for enable libs 32b vim /etc/pacman.conf
+
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+#STEP_24
+
++ enable forward syslog vim /etc/systemd/journald.conf
+
+ForwardToSyslog=yes
+
+#STEP_25
+
++ edit vim /etc/mkinitcpio.conf for enable lvm2 and add arg in the ligne HOOK=()
+
+keyboard keymap lvm2 encrypt udev
+
+#STEP_26
+
++ generate noyau image
+
+#STEP_27
+
++ check if efivar is mounted
+
+mount | grep efivar
+
++ if not
+
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+
+#STEP_28
+
++ configure grub , remote empty ligne 
+
+sed -i '/GRUB_CMDLINE_LINUX=/d' /etc/default/grub
+
+#STEP_29
+
++ enable grub 
+
+sed -i 's/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/' /etc/default/grub
+
+#STEP_29
+
++ add root with UUID
+
+echo GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=$(blkid -s UUID -o value /dev/mapper/archlvm-root):root root=/dev/mapper/root\" >> /etc/default/grub
+
+#STEP_30
+
++ install grub
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck
+
+#STEP_31
+
++ generate grub.cfg
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+#STEP_32
+
++ generate key file
+
+mkdir -m 700 /etc/luks-keys
+dd if=/dev/random of=/etc/luks-keys/home bs=1 count=256 status=progress
+
+#STEP_33
+
++ make crypt home 
+
+cryptsetup luksFormat -v -s 512 /dev/archlvm/home /etc/luks-keys/home
+
+#STEP_34
+
++ add crypto inside mapper
+
+cryptsetup -d /etc/luks-keys/home open /dev/archlvm/home home
+
+#STEP_35
+
++ format 
+
+mkfs.xfs /dev/mapper/home
+
++ mount partition
+
+mount /dev/mapper/home /home
+
+#STEP_36
+
++ need uncrypt partition when you boot need edit file
+
++ vim /etc/crypttab
+
+home /dev/mapper/archlvm-home  /etc/luks-keys/home
+swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=256
+tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=256
+
++ vim /etc/fstab
+
+/dev/mapper/tmp   /tmp   tmpfs  defaults  0  0
+/dev/mapper/swap  none   swap   sw  0  0
+/dev/mapper/home  /home  xfs    defaults  0  2
+
+#STEP_37
+
++ make user
+
+useradd -mG wheel -s /usr/bin/zsh -c "operator" operator
+
+#STEP_38
+
++ make user sudoers remove # %wheel ALL=(ALL) ALL in visudo /etc/sudoers
+
+%wheel ALL=(ALL) ALL
