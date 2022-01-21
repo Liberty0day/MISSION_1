@@ -112,8 +112,46 @@ rankmirrors -n 3 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 pacstrap /mnt base base-devel lvm2 nmap jq curl cryptsetup xfsprogs linux-lts linux-lts-headers linux-firmware zip unzip p7zip mlocate vim alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion zsh zsh-completions git grub efibootmgr os-prober
 
+#STEP_14
 
++ make fstab
 
+#STEP_15
 
++ go to inside root of install 
 
+#STEP_16
+
++ make name for your system
+
+echo nosecure > /etc/hostname
+
+#STEP_17
+
++ add machine inside host file 
+
+#STEP_18
+
++ make time world
+
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+
+#STEP_19
++ edit file vim /etc/locale.gen
+
+en_US.UTF-8 UTF-8
+
+locale-gen
+
+#STEP_20
+
++ define language 
+
+echo LANG="en_US.UTF-8" > /etc/locale.conf
+
+#STEP_21
+
++ define keboard like vim /etc/locale.conf
+
+echo KEYMAP=us > /etc/vconsole.conf
 
