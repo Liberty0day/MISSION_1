@@ -36,4 +36,46 @@ sgdisk /dev/sda -n1:0Mib:513MiB -t1:EF00
 
 sgdisk /dev/sda -n2:+0:-0
 
+#STEP_4
+
++ Initialisatione of physical volume 
+
+pvcreate /dev/sda2
+
+#STEP_5
+
++ make volume logic 
+
+vgcreate archlvm /dev/sda2
+
+#STEP_6
+
++ make logic volum
+
+lvcreate -L 5G -n root archlvm
+lvcreate -L 2G -n swap archlvm
+lvcreate -L 1G -n tmp archlvm
+lvcreate -l 100%FREE -n home archlvm
+
+#STEP_7 
+
++ make cryto for boot partition
+
+#cryptsetup luksFormat -c aes-xts-plain64 -s 512 /dev/archlvm/root
+
+
+cryptsetup --type luks2 --pbkdf argon2id --cipher serpent-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda
+
+#STEP_8
+
++ test your crypto
+
+cryptsetup open /dev/archlvm/root root
+
+#STEP_9
+
++ make filesystem and mount 
+
+mkfs.xfs /dev/mapper/root
+mount /dev/mapper/root /mnt
 
