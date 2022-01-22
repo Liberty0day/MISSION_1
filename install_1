@@ -126,9 +126,13 @@ pacstrap /mnt base base-devel go lvm2 nmap jq curl cryptsetup xfsprogs linux-lts
 
 + make fstab
 
+genfstab -Up /mnt >> /mnt/etc/fstab
+
 #STEP_15
 
 + go to inside root of install 
+
+arch-chroot /mnt
 
 #STEP_16
 
