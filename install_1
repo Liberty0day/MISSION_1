@@ -155,7 +155,7 @@ ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 #STEP_19
 + edit file vim /etc/locale.gen
 
-en_US.UTF-8 UTF-8
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 
 locale-gen
 
@@ -182,8 +182,8 @@ systemctl enable NetworkManager
 
 + enable color vim /etc/pacman.conf
 
-Color
-UseSyslog
+sed -i 's/#Color/Color/g' /etc/pacman.conf
+sed -i 's/#UseSyslog/UseSyslog/g' /etc/pacman.conf
 
 + remove # for enable libs 32b vim /etc/pacman.conf
 
