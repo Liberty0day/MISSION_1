@@ -380,6 +380,22 @@ git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -sri
 
+#STEP_46
 
++ install font
+
+yay -S ttf-ms-fonts
+
+#STEP_47
+
++ install xorg
+
+sudo pacman -S xorg-server xorg-xinit
+
+#STEP_48
+
++ conf openbox
+
+sudo pacman -S xorg-xdm openbox xorg
 
 
