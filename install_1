@@ -199,6 +199,8 @@ sed -i '94 s/^#//' /etc/pacman.conf
 
 ForwardToSyslog=yes
 
+sed -i 's/#ForwardToSyslog=no/ForwardToSyslog=yes/g' /etc/systemd/journald.conf
+
 #STEP_25
 
 + edit vim /etc/mkinitcpio.conf for enable lvm2 and add arg in the ligne HOOK=()
