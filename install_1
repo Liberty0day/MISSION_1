@@ -216,6 +216,8 @@ sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/H
 
 + generate noyau image
 
+mkinitcpio -p linux-lts
+
 #STEP_27
 
 + check if efivar is mounted
@@ -267,7 +269,7 @@ dd if=/dev/random of=/etc/luks-keys/home bs=1 count=256 status=progress
 
 + make crypt home 
 
-cryptsetup luksFormat -v -s 512 /dev/archlvm/home /etc/luks-keys/home
+#cryptsetup luksFormat -v -s 512 /dev/archlvm/home /etc/luks-keys/home
 
 #STEP_34
 
