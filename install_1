@@ -328,15 +328,17 @@ sudo sed -i '82 s/^# //' /etc/sudoers
 
 + enable time ntp and deamon cron and syslog-ng
 
-pacman -S cronie ntp
+pacman -Sy cronie ntp
 
 systemctl enable cronie
 systemctl enable ntpd
-systemctl enable syslog-ng
+systemctl enable syslog-ng@default
 
 #STEP_40
 
 + enable tlp for batterie
+
+pacman -S tlp && systemctl enable tlp
 
 #STEP_41
 
@@ -369,11 +371,12 @@ pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation
 + switch user 
 
 su - operator
-
+operator
 + install yay
 
 git clone https://aur.archlinux.org/yay
 cd yay
+makepkg -sri
 
 
 
