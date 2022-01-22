@@ -314,8 +314,8 @@ FUCK
 
 + make user
 
-useradd -mG wheel -s /usr/bin/zsh -c "operator" operator
-
+useradd -mG wheel -s /usr/bin/zsh -c "Liberty" liberty
+passwd liberty
 #STEP_38
 
 + make user sudoers remove # %wheel ALL=(ALL) ALL in visudo /etc/sudoers
@@ -323,6 +323,8 @@ useradd -mG wheel -s /usr/bin/zsh -c "operator" operator
 %wheel ALL=(ALL) ALL
 
 sudo sed -i '82 s/^# //' /etc/sudoers
+sudo sed -i '82 s/^#//' /etc/sudoers
+
 
 #STEP_39
 
@@ -370,8 +372,8 @@ pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation
 
 + switch user 
 
-su - operator
-operator
+su - liberty
+
 + install yay
 
 git clone https://aur.archlinux.org/yay
