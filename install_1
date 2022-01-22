@@ -322,6 +322,8 @@ useradd -mG wheel -s /usr/bin/zsh -c "operator" operator
 
 %wheel ALL=(ALL) ALL
 
+sudo sed -i '82 s/^# //' /etc/sudoers
+
 #STEP_39
 
 + enable time ntp and deamon cron and syslog-ng
