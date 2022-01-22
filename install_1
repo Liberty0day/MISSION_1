@@ -190,6 +190,9 @@ sed -i 's/#UseSyslog/UseSyslog/g' /etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 
+sed -i '93 s/^#//' /etc/pacman.conf
+sed -i '94 s/^#//' /etc/pacman.conf
+
 #STEP_24
 
 + enable forward syslog vim /etc/systemd/journald.conf
