@@ -1,6 +1,15 @@
 Install vmwareworkstation
 Install virtualbox
 
+#STEP_-0
+
++ remove all partition and volume
+
+sgdisk -Z /dev/sda
+vgremove archlvm
+
+#STEP_00
+
 Download iso of archlinux
 
 create virtual machine 50G
