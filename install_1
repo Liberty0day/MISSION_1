@@ -144,6 +144,8 @@ echo nosecure > /etc/hostname
 
 + add machine inside host file 
 
+echo '127.0.1.1 nosecure.local nosecure' >> /etc/hosts
+
 #STEP_18
 
 + make time world
