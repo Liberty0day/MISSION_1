@@ -61,7 +61,8 @@ vgcreate archlvm /dev/sda2
 
 + make logic volum
 
-lvcreate -L 5G -n root archlvm
+#lvcreate -L 5G -n root archlvm
+lvcreate -L 10G -n root archlvm
 lvcreate -L 2G -n swap archlvm
 lvcreate -L 1G -n tmp archlvm
 lvcreate -l 100%FREE -n home archlvm
@@ -73,7 +74,7 @@ lvcreate -l 100%FREE -n home archlvm
 #cryptsetup luksFormat -c aes-xts-plain64 -s 512 /dev/archlvm/root
 
 
-cryptsetup --type luks2 --pbkdf argon2id --cipher serpent-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda
+cryptsetup --type luks2 --pbkdf argon2id --cipher serpent-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/archlvm/root
 
 #STEP_8
 
