@@ -270,6 +270,9 @@ dd if=/dev/random of=/etc/luks-keys/home bs=1 count=256 status=progress
 + make crypt home 
 
 #cryptsetup luksFormat -v -s 512 /dev/archlvm/home /etc/luks-keys/home
+cryptsetup --type luks2 --pbkdf argon2id --cipher twofish-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/archlvm/home /etc/luks-keys/home
+
+
 
 #STEP_34
 
