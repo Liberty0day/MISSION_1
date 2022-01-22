@@ -207,6 +207,11 @@ sed -i 's/#ForwardToSyslog=no/ForwardToSyslog=yes/g' /etc/systemd/journald.conf
 
 keyboard keymap lvm2 encrypt udev
 
+
+
+sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block filesystems keyboard keymap lvm2 encrypt udev fsck)/g' /etc/mkinitcpio.conf
+
+
 #STEP_26
 
 + generate noyau image
