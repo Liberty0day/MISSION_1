@@ -11,3 +11,4 @@ chmod +x install_liberty.sh
 
 echo "[+] Start install"
 zsh install.sh
+zsh install_yay.sh
