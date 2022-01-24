@@ -1,4 +1,6 @@
-echo "+ Switch user"
+echo "+ install git"
+
+pacman -Sy --noconfirm git
 
 echo "+ install yay"
 
