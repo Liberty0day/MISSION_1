@@ -1,39 +1,12 @@
-Install vmwareworkstation
-Install virtualbox
-
-#STEP_-0
-
-+ remove all partition and volume
-
-sgdisk -Z /dev/sda
-vgremove archlvm
-
-#STEP_00
-
-Download iso of archlinux
-
-create virtual machine 50G
-
-Insert iso archlinux inside your virtualmachine
-
-lunch your virtual machine with boot and with the iso of archlinux.
-
 #STEP_1
 
-loadkey us
+loadkeys us
 
 #STEP_2
 
-enable the ssh for remote from your computer (is very simple with remote ssh ^^)
++ and write mdp toor
 
 passwd 
-
-and write mdp toor
-
-check status of ssh service
-
-systemctl status
-systemctl start
 
 #STEP_3
 
@@ -61,7 +34,6 @@ vgcreate archlvm /dev/sda2
 
 + make logic volum
 
-#lvcreate -L 5G -n root archlvm
 lvcreate -L 10G -n root archlvm
 lvcreate -L 2G -n swap archlvm
 lvcreate -L 1G -n tmp archlvm
@@ -71,13 +43,10 @@ lvcreate -l 100%FREE -n home archlvm
 
 + make cryto for boot partition
 
-#cryptsetup luksFormat -c aes-xts-plain64 -s 512 /dev/archlvm/root
-
-
 cryptsetup --type luks2 --pbkdf argon2id --cipher serpent-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/archlvm/root
 
 #STEP_8
-
+read 
 + test your crypto
 
 cryptsetup open /dev/archlvm/root root
@@ -118,7 +87,6 @@ rankmirrors -n 3 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 #STEP_13
 
 + Install base system paquet
-
 
 pacstrap /mnt base base-devel go lvm2 nmap jq curl cryptsetup xfsprogs linux-lts linux-lts-headers linux-firmware zip unzip p7zip mlocate vim alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion zsh zsh-completions git grub efibootmgr os-prober
 
@@ -205,12 +173,7 @@ sed -i 's/#ForwardToSyslog=no/ForwardToSyslog=yes/g' /etc/systemd/journald.conf
 
 + edit vim /etc/mkinitcpio.conf for enable lvm2 and add arg in the ligne HOOK=()
 
-keyboard keymap lvm2 encrypt udev
-
-
-
 sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block filesystems keyboard keymap lvm2 encrypt udev fsck)/g' /etc/mkinitcpio.conf
-
 
 #STEP_26
 
@@ -269,10 +232,7 @@ dd if=/dev/random of=/etc/luks-keys/home bs=1 count=256 status=progress
 
 + make crypt home 
 
-#cryptsetup luksFormat -v -s 512 /dev/archlvm/home /etc/luks-keys/home
 cryptsetup --type luks2 --pbkdf argon2id --cipher twofish-xts-plain64 --key-size 512 --hash sha512 --use-random --verify-passphrase luksFormat /dev/archlvm/home /etc/luks-keys/home
-
-
 
 #STEP_34
 
@@ -387,7 +347,7 @@ makepkg -sri
 + install font
 
 yay -S ttf-ms-fonts
-
+read
 #STEP_47
 
 + install openbox
