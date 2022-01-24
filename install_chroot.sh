@@ -27,7 +27,7 @@ echo KEYMAP=us > /etc/vconsole.conf
 
 echo "+ install and enable network for next start of the system"
 
-pacman -Sy networkmanager
+pacman -Sy --noconfirm networkmanager
 systemctl enable NetworkManager
 
 echo "+ enable color vim /etc/pacman.conf"
