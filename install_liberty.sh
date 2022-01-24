@@ -1,6 +1,7 @@
 echo "+ install git"
 
 pacman -Sy --noconfirm git
+pacman -Sy --noconfirm go
 
 echo "+ install ohmyzsh"
 
