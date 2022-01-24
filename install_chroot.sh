@@ -159,6 +159,9 @@ echo "+ switch user "
 
 su - liberty
 
+###
+
+sudo -i -u liberty zsh << EOF
 
 echo "+ install yay"
 
@@ -175,4 +178,9 @@ makepkg -sri
 echo "+ install font"
 
 yay -S ttf-ms-fonts
-read
+
+
+EOF
+
+
+
