@@ -23,4 +23,4 @@ chmod +x install_yay.sh
 #su liberty -c "zsh install_git_go_ohmyzsh.sh"
 
 #echo "[+] Start install yay"
-su liberty -c "zsh install_yay.sh"
+#su liberty -c "zsh install_yay.sh"
