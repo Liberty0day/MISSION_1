@@ -50,7 +50,7 @@ mount /dev/sda1 /mnt/boot
 
 echo "+ Install paquet"
 
-pacman -Sy pacman-contrib
+pacman -Sy --noconfirm pacman-contrib
 
 
 echo "+ backup original mirror "
