@@ -154,10 +154,7 @@ echo "+ install fonts"
 pacman -S --noconfirm xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
 
 
-echo "+ Switch user"
 
-cd /home/liberty
-sudo -u liberty /home/liberty/install_liberty.sh
 
 
 
