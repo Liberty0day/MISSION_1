@@ -156,7 +156,8 @@ pacman -S --noconfirm xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-ver
 
 echo "+ Switch user"
 
-sudo -u liberty bash -c 'sudo bash install_liberty.sh'
+cd /home/liberty
+sudo -u liberty /home/liberty/install_liberty.sh
 
 
 
