@@ -73,5 +73,6 @@ echo "+ make fstab"
 genfstab -Up /mnt >> /mnt/etc/fstab
 
 echo "+ jump to arch-root install"
+#arch-chroot /mnt ./install_chroot.bash
 
-arch-chroot /mnt ./jump.bash
+arch-chroot /mnt ./install_chroot.sh
