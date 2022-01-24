@@ -11,5 +11,5 @@ chmod +x install_liberty.sh
 
 echo "[+] Start install"
 zsh install.sh
-su liberty -c "install_git_go_ohmyzsh.sh"
+su liberty -c "zsh install_git_go_ohmyzsh.sh"
 su liberty -c "zsh install_yay.sh"
