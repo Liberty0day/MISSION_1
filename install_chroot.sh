@@ -154,13 +154,16 @@ echo "+ install fonts"
 pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
 
 
-echo "+ install yay"
-
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "+ switch user "
 
 su - liberty
+
+
+echo "+ install yay"
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 echo "+ install yay"
 
