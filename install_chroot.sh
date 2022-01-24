@@ -122,7 +122,7 @@ sudo sed -i '82 s/^#//' /etc/sudoers
 
 echo "+ enable time ntp and deamon cron and syslog-ng"
 
-pacman -Sy cronie ntp
+pacman -Sy --noconfirm cronie ntp
 
 systemctl enable cronie
 systemctl enable ntpd
@@ -141,7 +141,7 @@ pacman -S --noconfirm xorg-{server,xinit,apps} xdg-user-dirs xf86-video-intel me
 
 echo "+ install cpu"
 
-pacman -Sy intel-ucode
+pacman -Sy --noconfirm intel-ucode
 
 
 echo "+ install audio codec"
