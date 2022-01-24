@@ -16,11 +16,11 @@ chmod +x install_git_go_ohmyzsh.sh
 chmod +x install_yay.sh
 
 
-echo "[+] Start install"
-zsh install.sh
+#echo "[+] Start install"
+#zsh install.sh
 
-echo "[+] Start install ohmyzsh go git"
-su liberty -c "zsh install_git_go_ohmyzsh.sh"
+#echo "[+] Start install ohmyzsh go git"
+#su liberty -c "zsh install_git_go_ohmyzsh.sh"
 
-echo "[+] Start install yay"
+#echo "[+] Start install yay"
 su liberty -c "zsh install_yay.sh"
