@@ -131,12 +131,12 @@ systemctl enable syslog-ng@default
 
 echo "+ enable tlp for batterie"
 
-pacman -S tlp && systemctl enable tlp
+pacman -S --noconfirm tlp && systemctl enable tlp
 
 
 echo "+ install driver for graphic card"
 
-pacman -S xorg-{server,xinit,apps} xdg-user-dirs xf86-video-intel mesa lib32-mesa
+pacman -S --noconfirm xorg-{server,xinit,apps} xdg-user-dirs xf86-video-intel mesa lib32-mesa
 
 
 echo "+ install cpu"
@@ -146,12 +146,12 @@ pacman -Sy intel-ucode
 
 echo "+ install audio codec"
 
-pacman -S gst-libav gst-plugins-{base,good,bad,ugly}
+pacman -S --noconfirm gst-libav gst-plugins-{base,good,bad,ugly}
 
 
 echo "+ install fonts"
 
-pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
+pacman -S --noconfirm xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
 
 
 echo "+ Switch user"
