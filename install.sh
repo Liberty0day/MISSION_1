@@ -71,3 +71,7 @@ pacstrap /mnt base base-devel go lvm2 nmap jq curl cryptsetup xfsprogs linux-lts
 echo "+ make fstab"
 
 genfstab -Up /mnt >> /mnt/etc/fstab
+
+echo "+ jump to arch-root install"
+
+arch-chroot /mnt ./jump.bash
