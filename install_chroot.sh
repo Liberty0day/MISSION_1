@@ -154,33 +154,10 @@ echo "+ install fonts"
 pacman -S xorg-fonts-type1 gsfonts sdl_ttf ttf-{dejavu,bitstream-vera,liberation} noto-fonts-{cjk,emoji,extra}
 
 
-
-echo "+ switch user "
-
-su - liberty
-
-###
-
-sudo -i -u liberty zsh << EOF
-
-echo "+ install yay"
-
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo -H -u liberty bash -c 'bash install_liberty.sh'
 
 
-echo "+ install yay"
 
-git clone https://aur.archlinux.org/yay
-cd yay
-makepkg -sri
-
-
-echo "+ install font"
-
-yay -S ttf-ms-fonts
-
-
-EOF
 
 
 
