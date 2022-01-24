@@ -16,5 +16,3 @@ makepkg -sri
 echo "+ install font"
 
 yay -S ttf-ms-fonts
-
-
