@@ -9,7 +9,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 echo "+ install yay"
 
 git clone https://aur.archlinux.org/yay
-cd yay
+cd yay/
 makepkg -sri
 
 
