@@ -1,10 +1,10 @@
 echo "+ install yay"
 
-git clone https://aur.archlinux.org/yay
-cd yay/
-makepkg -sri
+su liberty -c "git clone https://aur.archlinux.org/yay"
+su liberty -c "cd yay/"
+ su liberty -c "makepkg -sri"
 
 
 echo "+ install font"
 
-yay -S ttf-ms-fonts
+su liberty -c "yay -S ttf-ms-fonts"
