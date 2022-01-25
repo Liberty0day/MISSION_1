@@ -1,3 +1,5 @@
+ curl https://raw.githubusercontent.com/Liberty0day/MISSION_1/main/fstab | tee fstab
+ curl https://raw.githubusercontent.com/Liberty0day/MISSION_1/main/crypttab | tee crypttab
 curl https://raw.githubusercontent.com/Liberty0day/MISSION_1/main/install_2_root.sh | tee install_2_root.sh
 curl https://raw.githubusercontent.com/Liberty0day/MISSION_1/main/install_3_root_to_user.sh | tee install_3_root_to_user.sh
 curl https://raw.githubusercontent.com/Liberty0day/MISSION_1/main/install_4_user.sh | tee install_4_user.sh
