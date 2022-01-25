@@ -7,7 +7,7 @@ zsh install_2_root.sh
 
 YES
 
-you password
+your password
 
 and
 
