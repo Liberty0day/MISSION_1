@@ -5,7 +5,7 @@ arch-chroot /mnt echo nosecure > /etc/hostname
 
 echo "+ add machine inside host file "
 
-echo '127.0.1.1 nosecure.local nosecure' >> /etc/hosts
+arch-chroot /mnt echo '127.0.1.1 nosecure.local nosecure' >> /etc/hosts
 
 echo "+ make time world"
 
@@ -13,7 +13,7 @@ arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 echo "+ edit file vim /etc/locale.gen"
 
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+arch-chroot /mnt sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 
 arch-chroot /mnt locale-gen
 
