@@ -95,3 +95,22 @@ mount /dev/mapper/home /home
 
 echo "+ need uncrypt partition when you boot need edit file"
 
+echo "+ fastab"
+
+cat <<EOF >> /mnt/etc/crypttab
+    home /dev/mapper/archlvm-home  /etc/luks-keys/home
+    swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=512
+    tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=512
+EOF
+
+cat /mnt/etc/crypttab
+
+echo "+ crypttab"
+
+cat <<EOF >> /mnt/etc/fstab
+    /dev/mapper/tmp   /tmp   tmpfs  defaults  0  0
+    /dev/mapper/swap  none   swap   sw  0  0
+    /dev/mapper/home  /home  xfs    defaults  0  2
+EOF
+
+cat /mnt/etc/fstab
