@@ -1,7 +1,8 @@
 echo "+ make user"
 arch-chroot /mnt useradd -mG wheel -s /usr/bin/zsh -c "Liberty" liberty
 arch-chroot /mnt passwd liberty
-
+echo "+ make root password"
+arch-chroot /mnt passwd toor
 echo "+ make user sudoers remove # %wheel ALL=(ALL) ALL in visudo /etc/sudoers"
 arch-chroot /mnt sudo sed -i '82 s/^#//' /etc/sudoers
 echo "+ enable time ntp and deamon cron and syslog-ng"
