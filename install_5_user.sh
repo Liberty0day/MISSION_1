@@ -1,3 +1,7 @@
+#cp install_4.0_user.sh /mnt/home
+
+#arch-chroot /mnt sh /home/install_4.0_user.sh
+
 echo "+ make user"
 useradd -mG wheel -s /usr/bin/zsh -c "Liberty" liberty
 passwd liberty
