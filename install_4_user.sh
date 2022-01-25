@@ -96,6 +96,9 @@ arch-chroot /mnt mount /dev/mapper/home /home
 echo "+ need uncrypt partition when you boot need edit file"
 echo "+ vim /etc/crypttab"
 
+1 root@archiso ~ # cp cryp /mnt 
+root@archiso ~ # arch-chroot /mnt cat cryp > /etc/crypttab 
+
 arch-chroot /mnt cat <<FUCK> /etc/crypttab
 home /dev/mapper/archlvm-home  /etc/luks-keys/home
 swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=512
