@@ -95,8 +95,3 @@ mount /dev/mapper/home /home
 
 echo "+ need uncrypt partition when you boot need edit file"
 
-echo "+ vim /etc/crypttab"
- cat /mnt/home/crypttab  > /mnt/etc/crypttab 
-
-echo "+ vim /etc/fstab"
-cat /mnt/home/fstab > /mnt/etc/fstab
