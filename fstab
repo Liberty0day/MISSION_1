@@ -1,3 +1,13 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/mapper/root
+UUID=19910675-caa6-4852-bdee-d5007edff4af       /               xfs             rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota        0 1
+
+# /dev/sda1
+UUID=6658-E816          /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro   0 2
+
 /dev/mapper/tmp   /tmp   tmpfs  defaults  0  0
 /dev/mapper/swap  none   swap   sw  0  0
 /dev/mapper/home  /home  xfs    defaults  0  2
