@@ -1,3 +1,6 @@
+cp fstab /mnt/home
+cp crypttab /mnt/home
+
 echo "+ vim /etc/crypttab"
  cat /mnt/home/crypttab  > /mnt/etc/crypttab 
 
