@@ -97,7 +97,7 @@ echo "+ need uncrypt partition when you boot need edit file"
 echo "+ vim /etc/crypttab"
 
 cat <<FUCK> /etc/crypttab
-home /dev/mapper/archlvm-home  /etc/luks-keys/home  home,cipher=twofish-xts-plain64,size=512
+home /dev/mapper/archlvm-home  /etc/luks-keys/home  cipher=twofish-xts-plain64,size=512
 swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=512
 tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=512
 FUCK
