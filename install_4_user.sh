@@ -97,10 +97,11 @@ echo "+ need uncrypt partition when you boot need edit file"
 echo "+ vim /etc/crypttab"
 
 cat <<FUCK> /etc/crypttab
-home /dev/mapper/archlvm-home  /etc/luks-keys/home  cipher=twofish-xts-plain64,size=512
-swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=512
-tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=512
+home /dev/mapper/archlvm-home  /etc/luks-keys/home
+swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=256
+tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=256
 FUCK
+
 echo "+ vim /etc/fstab"
 cat <<FUCK> /etc/fstab
 /dev/mapper/tmp   /tmp   tmpfs  defaults  0  0
