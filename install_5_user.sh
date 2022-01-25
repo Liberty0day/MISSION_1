@@ -4,7 +4,8 @@ passwd liberty
 echo "+ make root password"
 passwd root
 echo "+ make user sudoers remove # %wheel ALL=(ALL) ALL in visudo /etc/sudoers"
-sudo sed -i '82 s/^#//' /etc/sudoers
+#sudo sed -i '82 s/^#//' /etc/sudoers
+sed -i '82 s/^#//' /mnt/etc/sudoers
 echo "+ enable time ntp and deamon cron and syslog-ng"
 pacman -Sy --noconfirm cronie ntp
 systemctl enable cronie
