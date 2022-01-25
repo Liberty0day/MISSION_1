@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "+ make name for your system"
 
 echo nosecure > /etc/hostname
