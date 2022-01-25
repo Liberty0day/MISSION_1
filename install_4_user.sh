@@ -98,8 +98,8 @@ echo "+ vim /etc/crypttab"
 
 cat <<FUCK> /etc/crypttab
 home /dev/mapper/archlvm-home  /etc/luks-keys/home
-swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=256
-tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=256
+swap /dev/mapper/archlvm-swap  /dev/urandom  swap,cipher=serpent-xts-plain64,size=512
+tmp  /dev/mapper/archlvm-tmp   /dev/urandom  tmp,cipher=serpent-xts-plain64,size=512
 FUCK
 
 echo "+ vim /etc/fstab"
